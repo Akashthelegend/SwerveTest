@@ -7,7 +7,7 @@ import com.ctre.phoenix.sensors.PigeonIMU;
 
 import frc.robot.SwerveModule;
 import frc.robot.Constants;
-
+import frc.robot.RobotMap;
 import edu.wpi.first.math.kinematics.ChassisSpeeds;
 import edu.wpi.first.math.kinematics.SwerveDriveKinematics;
 import edu.wpi.first.math.kinematics.SwerveDriveOdometry;
@@ -25,17 +25,17 @@ public class SwerveSubsystem extends SubsystemBase {
   public PigeonIMU gyro;
 
   public SwerveSubsystem() {
-    gyro = new PigeonIMU(Constants.Swerve.pigeonID); //TODO set constant for pigeon
-    gyro.configFactoryDefault()
+    gyro = new PigeonIMU(RobotMap.pigeonID); //TODO set constant for pigeon
+    gyro.configFactoryDefault();
     zeroGyro();
 
     swerveOdometry = new SwerveDriveOdometry(Constants.Swerve.swerveKinematics, getYaw()); //TODO set constant for kinematics
 
         mSwerveMods = new SwerveModule[] {
-            new SwerveModule(0, Constants.Swerve.Mod0.constants), //TODO set constants for each module
-            new SwerveModule(1, Constants.Swerve.Mod1.constants),
-            new SwerveModule(2, Constants.Swerve.Mod2.constants),
-            new SwerveModule(3, Constants.Swerve.Mod3.constants)
+            new SwerveModule(0, RobotMap.Mod0.constants), //TODO set constants for each module
+            new SwerveModule(1, RobotMap.Mod1.constants),
+            new SwerveModule(2, RobotMap.Mod2.constants),
+            new SwerveModule(3, RobotMap.Mod3.constants)
         };
   }
 

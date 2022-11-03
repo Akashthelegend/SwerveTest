@@ -4,7 +4,7 @@ import com.ctre.phoenix.motorcontrol.can.WPI_TalonFX;
 import edu.wpi.first.math.controller.SimpleMotorFeedforward;
 import edu.wpi.first.math.geometry.Rotation2d;
 import edu.wpi.first.math.kinematics.SwerveModuleState;
-
+//import edu.wpi.first.wpilibj.PIDController;
 import frc.lib.math.Conversions;
 import frc.lib.util.CTREModuleState;
 import frc.lib.util.SwerveModuleConstants;
@@ -23,7 +23,9 @@ public class SwerveModule {
     private double lastAngle;   
     //private final CANCoder driveEncoder; Team364 didn't use a driving encoder as of right now  
     
-    private PIDController heading; // TODO We can use the PID controller built into the falcon
+   // private PIDController heading;  TODO We can use the PID controller built into the falcon
+
+   SimpleMotorFeedforward feedforward = new SimpleMotorFeedforward(Constants.Swerve.driveKS, Constants.Swerve.driveKV, Constants.Swerve.driveKA);
 
     public SwerveModule(int moduleNumber, SwerveModuleConstants moduleConstants){
         this.moduleNumber = moduleNumber;
